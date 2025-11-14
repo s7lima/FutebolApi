@@ -1,0 +1,134 @@
+/* Variáveis de cores (mantidas) */
+:root {
+  --veloclube-vermelho: #FFD700;   /* Cor primária para textos e detalhes (Amarelo Ouro) */
+  --veloclube-verde:   #23ce23;   /* Cor de acento (Verde Brilhante) */
+  --texto-claro:       #ffffff;
+  --fundo:             url(img/torcidaveloclube.webp); /* URL da imagem de fundo */
+  --fundo-form: linear-gradient(
+    to bottom,     /* Direção: Transiciona de cima para baixo */
+    #C70000,       /* Cor Inicial (Vermelho Velo) */
+    #006400        /* Cor Final (Verde Velo) */
+  );
+  --estrela-amarela: #FFD700; /* Cor para as estrelas, inspirada no escudo */
+}
+
+/* Corpo da página */
+body {
+  font-family: Arial, sans-serif;
+  
+  /* PROPRIEDADES PARA A IMAGEM DE FUNDO */
+  background-image: var(--fundo);
+  background-size: cover;      /* Garante que a imagem cubra toda a tela */
+  background-repeat: no-repeat;/* Impede a repetição */
+  background-attachment: fixed;/* Mantém a imagem fixa ao rolar (opcional) */
+  min-height: 100vh;           /* Garante que o corpo tenha pelo menos a altura da tela */
+  
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 30px auto;
+  /* Aplica o gradiente de VERMELHO e VERDE */
+  background: var(--fundo-form);
+  padding: 20px;
+  border-radius: 10px;
+  /* Borda com sombra de vermelho */
+  box-shadow: 0 0 10px rgb(209, 5, 5); 
+}
+
+/* Header com o emblema/estrelas */
+.header-velo {
+    text-align: center;
+    padding: 10px 0 20px 0;
+}
+
+.stars-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Espaço entre as estrelas */
+    margin-bottom: 10px;
+}
+
+.star {
+    font-size: 30px; /* Tamanho da estrela */
+    color: var(--estrela-amarela);
+}
+
+/* Títulos (mantidos) */
+h1, h2 {
+  text-align: center;
+  /* Usando o Amarelo Ouro para os títulos */
+  color: var(--veloclube-vermelho); 
+}
+
+/* Formulário (mantido) */
+form {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Inputs e Botões (mantidos) */
+input, button {
+  padding: 10px;
+  font-size: 16px;
+  /* Borda dos inputs em verde */
+  border: 1px solid var(--veloclube-verde); 
+  border-radius: 5px;
+}
+
+/* Botão principal (mantido) */
+button {
+  /* Fundo do botão em Amarelo Ouro */
+  background: var(--veloclube-vermelho); 
+  color: #000000; /* Texto do botão deve ser preto para contraste com o amarelo */
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  /* Hover em verde */
+  background: var(--veloclube-verde); 
+  color: var(--texto-claro); /* Texto do botão em branco no hover */
+}
+
+/* Tabela de jogadores (mantida) */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  padding: 10px;
+  /* Bordas da tabela em verde */
+  border: 1px solid var(--veloclube-verde); 
+  text-align: center;
+}
+
+/* Ações (botões editar/excluir) (mantidas) */
+.action-btn {
+  padding: 5px 10px;
+  margin: 0 3px;
+  border: none;
+  color: var(--texto-claro);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.action-btn.edit {
+  background: var(--veloclube-verde);
+}
+
+.action-btn.delete {
+  /* Fundo do botão delete em Vermelho */
+  background: #C70000; 
+}
+/* Oculta o campo de seleção/entrada do time */
+#time,
+label[for="time"] {
+  display: none !important;
+}
