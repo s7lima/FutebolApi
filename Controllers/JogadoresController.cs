@@ -10,18 +10,28 @@ namespace FutebolApi.Controllers
     public class JogadoresController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly ILogger<JogadoresController> _logger;
 
-        public JogadoresController(AppDbContext context)
+        public JogadoresController(AppDbContext context, ILogger<JogadoresController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         [HttpPost]
         public async Task<ActionResult<Jogador>> CriarJogador(Jogador jogador)
         {
-            _context.Jogadores.Add(jogador);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(ObterPorId), new { id = jogador.Id }, jogador);
+            try
+            {
+                _context.Jogadores.Add(jogador);
+                await _context.SaveChangesAsync();
+                return CreatedAtAction(nameof(ObterPorId), new { id = jogador.Id }, jogador);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao criar jogador");
+                return StatusCode(500, "Erro interno ao criar jogador");
+            }
         }
 
         [HttpGet]
@@ -45,9 +55,17 @@ namespace FutebolApi.Controllers
             if (id != jogador.Id)
                 return BadRequest();
 
-            _context.Entry(jogador).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
-            return NoContent();
+            try
+            {
+                _context.Entry(jogador).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao atualizar jogador");
+                return StatusCode(500, "Erro interno ao atualizar jogador");
+            }
         }
 
         [HttpDelete("{id}")]

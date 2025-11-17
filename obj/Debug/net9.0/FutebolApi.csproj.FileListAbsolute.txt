@@ -292,6 +292,6 @@ C:\Users\bruno.eslima\Documents\FutebolApi\obj\Debug\net9.0\FutebolApi.pdb
 C:\Users\bruno.eslima\Documents\FutebolApi\obj\Debug\net9.0\FutebolApi.genruntimeconfig.cache
 C:\Users\bruno.eslima\Documents\FutebolApi\obj\Debug\net9.0\ref\FutebolApi.dll
 C:\Users\bruno.eslima\Documents\FutebolApi\bin\Debug\net9.0\FutebolApi.staticwebassets.runtime.json
-C:\Users\bruno.eslima\Documents\FutebolApi\obj\Debug\net9.0\compressed\tvuuik6r2p-t4z1vsxvli.gz
-C:\Users\bruno.eslima\Documents\FutebolApi\obj\Debug\net9.0\compressed\uexgi0x623-lshkpe9yb9.gz
-C:\Users\bruno.eslima\Documents\FutebolApi\obj\Debug\net9.0\compressed\61q24hgftf-0u9agft0ng.gz
+C:\Users\bruno.eslima\Documents\FutebolApi\obj\Debug\net9.0\compressed\tvuuik6r2p-0of66k2e9r.gz
+C:\Users\bruno.eslima\Documents\FutebolApi\obj\Debug\net9.0\compressed\uexgi0x623-nox8fpbi4k.gz
+C:\Users\bruno.eslima\Documents\FutebolApi\obj\Debug\net9.0\compressed\61q24hgftf-q155af6mmi.gz

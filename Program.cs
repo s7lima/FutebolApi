@@ -4,6 +4,19 @@ using FutebolApi.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Logging (console)
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+
+// Habilita CORS para desenvolvimento (AJUSTE em produção)
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", p => p
+        .AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader());
+});
+
 // Serviços
 builder.Services.AddControllers();
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -24,16 +37,19 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
-// Configuração do Swagger
+// Mostrar página de erro detalhada em Development
 if (app.Environment.IsDevelopment())
 {
+    app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-app.UseAuthorization();
+app.UseCors("AllowAll");
 
 app.UseStaticFiles();
+
+app.UseAuthorization();
 
 app.MapControllers();
 

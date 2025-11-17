@@ -128,7 +128,3 @@ table th, table td {
   background: #C70000; 
 }
 /* Oculta o campo de seleção/entrada do time */
-#time,
-label[for="time"] {
-  display: none !important;
-}
